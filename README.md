@@ -1,7 +1,7 @@
 # 🎬 Mello, the Moviebot  
 *A Hybrid Rule-Based + LLM Movie Recommendation Chatbot*
 
-Mello, the moviebot (internally named **“Having A Sungderful Time”**) is a conversational movie recommendation system built for Stanford CS124.
+Mello, the moviebot (internally named **“Having A Sungderful Time”**) is a conversational movie recommendation system.
 
 The chatbot collects user opinions on movies, analyzes sentiment, and generates personalized recommendations using **item-item collaborative filtering**. It also supports an optional **LLM-powered personality mode** for richer, character-driven interactions.
 
@@ -40,3 +40,33 @@ The recommendation system uses:
 - No normalization of final scores  
 
 Score calculation:
+score(movie_i) = Σ similarity(movie_i, movie_j) × user_rating(movie_j)
+
+Top-K unseen movies are returned as recommendations.
+
+---
+
+## 🛠 Tech Stack
+
+- Python  
+- NumPy  
+- Regular Expressions  
+- Porter Stemmer  
+- Pydantic (structured LLM outputs)  
+- Optional LLM integration  
+
+---
+
+## 🧩 Conversation Flow
+
+1. User provides opinions on movies (must be in quotes).
+2. Chatbot extracts:
+   - Movie titles  
+   - Sentiment  
+3. After 5 unique preferences:
+   - Chatbot asks if the user wants recommendations.
+4. Provides recommendations iteratively until user declines.
+
+---
+
+
